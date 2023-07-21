@@ -1,0 +1,19 @@
+<h1>Users Index</h1>
+
+<div class="button-container" >
+    <%= link_to "Sign Up", new_user_path, class:"link-button" %>
+</div>
+
+<ul>
+    <% @users.each do |user| %>
+    <li>
+        <h2><%= user.name %></h2>
+        <p><%= user.password %></p>
+        <p><%= user.colour %></p>
+        <div class="edit-delete-wrapper">
+            <%= link_to "Edit", edit_user_path(user), class:"link-button"%>
+            <%= button_to "Delete", user_path(user), method: :delete, class:"link-delete-button"%>
+        </div>
+    </li>
+    <% end %>
+</ul>
